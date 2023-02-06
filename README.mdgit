@@ -1,0 +1,2 @@
+"# P3Front-End"  initgit add README.mdgit commit -m "first commit"git branch -M maingit remote add origin https://github.com/Milouyg/P3Front-End.gitgit push -u origin main
+"# P3Front-End"  initgit add README.mdgit commit -m "first commit"git branch -M maingit remote add origin https://github.com/Milouyg/P3Front-End.gitgit push -u origin main
