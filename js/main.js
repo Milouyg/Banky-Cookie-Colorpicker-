@@ -15,8 +15,12 @@ class Cookie{
                 this.score.onCookieClicked(this.factor);
         }
 
-        onStyleChange(){
+        onStyleChangeChocolate(){
                 this.htmlElement.classList.add("cookie--chocolate")
+        }
+
+        onStyleChangeRedvelvet(){
+                this.htmlElement.classList.add("cookie--redvelvet");
         }
 }
 
@@ -47,6 +51,11 @@ class Score{
                 this.htmlElement.innerText = this.score;
                 }, 10000)
                 
+        }
+
+        addPoints(){
+                this.score = this.score + 10000;
+                this.htmlElement.innerText = this.score;
         }
 }
 
@@ -90,11 +99,6 @@ class AutosScore{
                         this.score.onAutoScoreClicked();
                 }
         }
-
-        addPoints(){
-                this.score = this.score + 10000;
-                this.htmlElement.innerText = this.score;
-        }
 }
 
 class ChocolateCookie{
@@ -111,12 +115,29 @@ class ChocolateCookie{
         onChocolateCookieClicked = () => {
                 if(this.bought === false){
                         this.bought = true;
-                        this.cookie.onStyleChange();
+                        this.cookie.onStyleChangeChocolate();
                         this.cookie.score.addPoints();
                 }
         }
+}
 
-        
+class RedvelvetCookie{
+        htmlElement = undefined;
+        bought = false;
+
+        constructor(htmlElement){
+                this.htmlElement = htmlElement;
+                this.cookie = cookie;
+                this.htmlElement.onclick = this.onRedvelvetCookieClicked;
+                }
+
+                onRedvelvetCookieClicked = () =>{
+                        if(this.bought === false){
+                                this.bought = true;
+                                this.cookie.onStyleChangeRedvelvet();
+                                this.cookie.score.addPoints();
+                }
+        }
 }
 
 // Setup for score and cookie
@@ -128,6 +149,8 @@ const multiplier = new Multiplier(document.getElementById("js--multiplier"), coo
 const auto = new AutosScore(document.getElementById("js--autoScore"), score);
 const chocolate = new ChocolateCookie(document.getElementById("js--chocolate"), cookie);
 
+// Red Velvet class aanmaken
+const redVelvet = new RedvelvetCookie(document.getElementById("js--redVelvet"), cookie);
 
 // Setup mobile upgrades
 const multiplierMobile = new Multiplier(document.getElementById("js--multiplier--mobile"), cookie);

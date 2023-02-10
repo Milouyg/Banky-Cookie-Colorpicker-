@@ -218,7 +218,13 @@ header {
   border-radius: 20%;
 }
 .cookie--redvelvet {
-  background: red;
+  background: #DD5353;
+  box-shadow: 0 2rem 1.5rem 0rem rgba(0, 0, 0, 0.2);
+  border: 1rem solid #B73E3E;
+}
+.cookie--redvelvet .cookie__spots {
+  background: whitesmoke;
+  border: 1rem solid whitesmoke;
 }
 .cookie__spots {
   width: 5rem;
