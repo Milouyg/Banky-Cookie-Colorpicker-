@@ -16,7 +16,7 @@ class Cookie{
         }
 
         onStyleChangeChocolate(){
-                this.htmlElement.classList.add("cookie--chocolate")
+                this.htmlElement.classList.add("cookie--chocolate");
         }
 
         onStyleChangeRedvelvet(){
@@ -77,7 +77,6 @@ class Multiplier{
                         this.cookie.score.subtractScore();
                         this.cookie.factor = this.factor;
                 }
-                
         }
 }
 
@@ -156,4 +155,4 @@ const redVelvet = new RedvelvetCookie(document.getElementById("js--redVelvet"), 
 const multiplierMobile = new Multiplier(document.getElementById("js--multiplier--mobile"), cookie);
 const autoMobile = new AutosScore(document.getElementById("js--autoScore--mobile"), score);
 const chocolateMobile = new ChocolateCookie(document.getElementById("js--chocolate--mobile"), cookie);
-
+const redVelvetMobile = new RedvelvetCookie(document.getElementById("js--redVelvet--mobile"), cookie);
