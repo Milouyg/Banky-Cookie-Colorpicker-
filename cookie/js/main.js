@@ -17,11 +17,18 @@ class Cookie{
 
         onStyleChangeChocolate(){
                 this.htmlElement.classList.add("cookie--chocolate");
+                // this.cookie.onclick.returnOldStyle();
+                
         }
 
         onStyleChangeRedvelvet(){
                 this.htmlElement.classList.add("cookie--redvelvet");
         }
+
+        // returnOldStyle(){
+        //         console.log("ik ben er");
+        //         this.htmlElement.classList.remove("cookie--chocolate");
+        // }
 }
 
 class Score{
@@ -130,7 +137,7 @@ class RedvelvetCookie{
                 this.htmlElement.onclick = this.onRedvelvetCookieClicked;
                 }
 
-                onRedvelvetCookieClicked = () =>{
+                onRedvelvetCookieClicked = () => {
                         if(this.bought === false){
                                 this.bought = true;
                                 this.cookie.onStyleChangeRedvelvet();
@@ -147,8 +154,6 @@ const cookie = new Cookie("Default cookie", document.getElementById("js--cookie"
 const multiplier = new Multiplier(document.getElementById("js--multiplier"), cookie);
 const auto = new AutosScore(document.getElementById("js--autoScore"), score);
 const chocolate = new ChocolateCookie(document.getElementById("js--chocolate"), cookie);
-
-// Red Velvet class aanmaken
 const redVelvet = new RedvelvetCookie(document.getElementById("js--redVelvet"), cookie);
 
 // Setup mobile upgrades
