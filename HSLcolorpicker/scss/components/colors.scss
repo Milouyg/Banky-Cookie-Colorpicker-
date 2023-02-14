@@ -1,0 +1,47 @@
+.colors{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    list-style: none;
+    background: white;
+    padding: 4rem;
+    max-width: 170rem;
+    
+    &__color{
+        width: 30rem;
+        flex-grow: 1;
+        aspect-ratio: 1/1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: .1rem solid rgba(128, 128, 128, .2);
+        // border-radius: .5rem;
+        // box-shadow: 0 1rem 1rem 0 rgba(0, 0, 0, .1);
+        overflow: hidden;
+    }
+
+    &__color:hover{
+        cursor: pointer;
+    }
+
+    &__color:hover &__circle{
+        transform: scale(1.2);
+    }
+
+    &__circle{
+        width: 50%;
+        height: 50%;
+        background: #6096B4;
+        border-radius: 50%;
+        transition: .2s transform;
+        transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+        
+        &--selected{
+            transform: scale(3);
+        }
+    }
+
+    
+
+    
+}
