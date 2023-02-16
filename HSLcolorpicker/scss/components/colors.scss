@@ -1,3 +1,5 @@
+@use "../abstracts/animations.scss";
+
 .colors{
     display: flex;
     flex-wrap: wrap;
@@ -18,10 +20,12 @@
         // border-radius: .5rem;
         // box-shadow: 0 1rem 1rem 0 rgba(0, 0, 0, .1);
         overflow: hidden;
+        position: relative;
     }
 
     &__color:hover{
         cursor: pointer;
+        transform: translateY(-.5rem);
     }
 
     &__color:hover &__circle{
@@ -31,7 +35,6 @@
     &__circle{
         width: 50%;
         height: 50%;
-        background: #6096B4;
         border-radius: 50%;
         transition: .2s transform;
         transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -41,7 +44,17 @@
         }
     }
 
+    &__text{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation-name: popup;
+        animation-duration: .6s;
+        display: none;
+    }
     
-
-    
+    &__circle--selected + &__text{
+        display: block;
+    }
 }
