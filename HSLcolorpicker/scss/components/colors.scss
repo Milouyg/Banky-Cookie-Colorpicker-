@@ -20,7 +20,17 @@
         // border-radius: .5rem;
         // box-shadow: 0 1rem 1rem 0 rgba(0, 0, 0, .1);
         overflow: hidden;
+        transition: .2s;
         position: relative;
+        animation-name: popupCard;
+        animation-duration: .6s;
+        animation-fill-mode: backwards;
+    }
+
+    @for  $i from 1 through 100{
+        &__color:nth-of-type(#{$i}){
+            animation-delay: $i / 10 + s;
+        }
     }
 
     &__color:hover{
@@ -28,16 +38,12 @@
         transform: translateY(-.5rem);
     }
 
-    &__color:hover &__circle{
-        transform: scale(1.2);
-    }
-
     &__circle{
         width: 50%;
         height: 50%;
         border-radius: 50%;
         transition: .2s transform;
-        transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+        // transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
         
         &--selected{
             transform: scale(3);
