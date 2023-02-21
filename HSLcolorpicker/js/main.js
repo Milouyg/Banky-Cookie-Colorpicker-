@@ -15,7 +15,7 @@ class ColorsCard{
         // Make listItem to render
         this.htmlElement = document.createElement("li");
         this.htmlElement.classList = "colors__color";
-        
+
         this.circle = document.createElement("figure");
         this.circle.classList = "colors__circle";
         this.circle.style.background = this.color;
@@ -32,15 +32,26 @@ class ColorsCard{
 
     onHTMLElementClicked = () => {
         this.circle.classList.add("colors__circle--selected");
+        document.title = this.color;
+        window.navigator.clipboard.writeText(this.color);
     }
 
     render() {
         this.htmlElement.appendChild(this.circle);
         this.htmlElement.appendChild(this.text);
         this.addToList.appendChild(this.htmlElement);
-        
     }
 }
 
-const test = new ColorsCard(101, "hsl(284, 52%, 36%)", document.getElementById("js--colors"));
+for (let i = 1; i < 101; i++) {
+
+    // colors[i].style.animationDelay = i / 10 + "s";
+    let randomHue = Math.floor(Math.random() * (360 - 1) + 1);
+    let randomSaturation = Math.floor(Math.random() * (79 - 11) + 11) + "%";
+    let randomLightness = Math.floor(Math.random() * (100 - 11) + 11) + "%";
+
+    let hsl = `hsl(${randomHue}, ${randomSaturation}, ${randomLightness})`
+    new ColorsCard(i, hsl, document.getElementById("js--colors"));
+
+}
 
