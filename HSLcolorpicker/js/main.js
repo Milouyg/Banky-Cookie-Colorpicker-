@@ -1,4 +1,4 @@
-class ColorsCard{
+class ColorsCard {
     id;
     color;
     addToList;
@@ -19,11 +19,11 @@ class ColorsCard{
         this.circle = document.createElement("figure");
         this.circle.classList = "colors__circle";
         this.circle.style.background = this.color;
-        
+
         this.text = document.createElement("p");
         this.text.innerText = "Copied";
         this.text.classList = "colors__text";
-        
+
         this.htmlElement.onclick = this.onHTMLElementClicked;
 
         // finally render
@@ -43,15 +43,77 @@ class ColorsCard{
     }
 }
 
-for (let i = 1; i < 101; i++) {
+class ColorList {
+    id;
+    htmlElement;
 
-    // colors[i].style.animationDelay = i / 10 + "s";
-    let randomHue = Math.floor(Math.random() * (360 - 1) + 1);
-    let randomSaturation = Math.floor(Math.random() * (79 - 11) + 11) + "%";
-    let randomLightness = Math.floor(Math.random() * (100 - 11) + 11) + "%";
+    constructor(newId) {
+        this.id = newId;
+        this.htmlElement = document.createElement("ul");
+        this.htmlElement.id = this.id;
+        this.htmlElement.classList.add("colors");
+        this.render();
+    }
 
-    let hsl = `hsl(${randomHue}, ${randomSaturation}, ${randomLightness})`
-    new ColorsCard(i, hsl, document.getElementById("js--colors"));
-
+    render() {
+        document.querySelector("body").appendChild(this.htmlElement);
+    }
 }
+
+const colorList = new ColorList("js--colors");
+
+
+class HSLGenerator {
+    rendomHue;
+    rendomSaturation;
+    randomLightness;
+
+    constructor() {
+        this.generateHSL();
+    }
+
+    generateHue = function () {
+        this.randomHue = Math.floor(Math.random() * (360 - 1) + 1);
+    }
+
+    generateSaturation = function () {
+        this.randomSaturation = Math.floor(Math.random() * (79 - 11) + 11) + "%";
+
+    }
+
+    generateLightness = function () {
+        this.randomLightness = Math.floor(Math.random() * (100 - 11) + 11) + "%";
+
+    }
+
+    generateHSL = function () {
+        this.generateHue();
+        this.generateSaturation();
+        this.generateLightness();
+        this.hsl = `hsl(${this.randomHue}, ${this.randomSaturation}, ${this.randomLightness})`;
+    }
+}
+
+class App {
+    id;
+    colorList;
+    hslGenerator;
+
+    constructor(newId) {
+        this.id = newId;
+        this.colorList = new ColorList(this.id);
+        this.hslGenerator = new HSLGenerator();
+        this.generateColorCards();
+    }
+
+    generateColorCards = function () {
+        for (let i = 1; i <= 100; i++) {
+            this.hslGenerator.generateHSL();
+            new ColorsCard(i, this.hslGenerator.hsl, document.getElementById(this.colorList.id));
+        }
+    }
+}
+
+
+const app = new App("js--app");
 
