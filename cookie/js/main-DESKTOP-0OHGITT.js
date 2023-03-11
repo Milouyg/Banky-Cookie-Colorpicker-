@@ -17,15 +17,18 @@ class Cookie{
 
         onStyleChangeChocolate(){
                 this.htmlElement.classList.add("cookie--chocolate");
+                // this.cookie.onclick.returnOldStyle();
+                
         }
 
         onStyleChangeRedvelvet(){
                 this.htmlElement.classList.add("cookie--redvelvet");
         }
 
-        returnOldStyle(){
-                this.htmlElement.classList.remove("cookie--redvelvet");
-        }
+        // returnOldStyle(){
+        //         console.log("ik ben er");
+        //         this.htmlElement.classList.remove("cookie--chocolate");
+        // }
 }
 
 class Score{
@@ -59,11 +62,6 @@ class Score{
 
         addPoints(){
                 this.score = this.score + 10000;
-                this.htmlElement.innerText = this.score;
-        }
-
-        scoreLoaded(newScore) {
-                this.score = newScore;
                 this.htmlElement.innerText = this.score;
         }
 }
@@ -121,70 +119,29 @@ class ChocolateCookie{
         }
 
         onChocolateCookieClicked = () => {
-                if(this.bought === false && window.localStorage.getItem("chocolateCookie") !== "true"){
+                if(this.bought === false){
                         this.bought = true;
-                        window.localStorage.setItem("chocolateCookie", this.bought);
+                        this.cookie.onStyleChangeChocolate();
                         this.cookie.score.addPoints();
                 }
-                this.cookie.onStyleChangeChocolate();
-        }
-}
-
-class Save{
-        htmlElement;
-
-        constructor(newHTMLElement){
-                this.htmlElement = newHTMLElement;
-                this.htmlElement.onclick = this.onSaveButtonClicked;
-
-        }
-
-        onSaveButtonClicked = () => {
-                window.localStorage.setItem("score", score.score);
         }
 }
 
 class RedvelvetCookie{
         htmlElement = undefined;
         bought = false;
-        cookie = undefined;
 
-        constructor(htmlElement, cookie){
+        constructor(htmlElement){
                 this.htmlElement = htmlElement;
                 this.cookie = cookie;
                 this.htmlElement.onclick = this.onRedvelvetCookieClicked;
                 }
 
-        onRedvelvetCookieClicked = () => {
-                // Opdracht 
-                if (this.bought === false) {
-                        this.bought = true;
-                        this.cookie.onStyleChangeRedvelvet();
-                }
-
-                // extra
-                // if(this.cookie.htmlElement.classList.contains("cookie--redvelvet") === true){
-                //         this.cookie.returnOldStyle();
-                // }
-                // else{
-                //         this.cookie.onStyleChangeRedvelvet();
-                // }
-        }
-}
-
-class Load{
-        score;
-
-        constructor(score) {
-                this.score = score;
-                this.onLoad();
-        }
-
-        onLoad = function () {
-                // Save the score in the localStorage
-                const scoreFromLocalStorage = window.localStorage.getItem("score");
-                if(scoreFromLocalStorage !== null){
-                this.score.scoreLoaded(parseInt(scoreFromLocalStorage));
+                onRedvelvetCookieClicked = () => {
+                        if(this.bought === false){
+                                this.bought = true;
+                                this.cookie.onStyleChangeRedvelvet();
+                                this.cookie.score.addPoints();
                 }
         }
 }
@@ -198,19 +155,9 @@ const multiplier = new Multiplier(document.getElementById("js--multiplier"), coo
 const auto = new AutosScore(document.getElementById("js--autoScore"), score);
 const chocolate = new ChocolateCookie(document.getElementById("js--chocolate"), cookie);
 const redVelvet = new RedvelvetCookie(document.getElementById("js--redVelvet"), cookie);
-const save = new Save(document.getElementById("js--save"));
-const load = new Load(score);
-
 
 // Setup mobile upgrades
 const multiplierMobile = new Multiplier(document.getElementById("js--multiplier--mobile"), cookie);
 const autoMobile = new AutosScore(document.getElementById("js--autoScore--mobile"), score);
 const chocolateMobile = new ChocolateCookie(document.getElementById("js--chocolate--mobile"), cookie);
 const redVelvetMobile = new RedvelvetCookie(document.getElementById("js--redVelvet--mobile"), cookie);
-
-
-
-
-
-
-
