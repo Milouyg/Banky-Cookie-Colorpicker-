@@ -26,6 +26,10 @@ class Cookie{
         returnOldStyle(){
                 this.htmlElement.classList.remove("cookie--redvelvet");
         }
+
+        multiplierLoaded(){
+                this.factor = 100;
+        }
 }
 
 class Score{
@@ -66,6 +70,7 @@ class Score{
                 this.score = newScore;
                 this.htmlElement.innerText = this.score;
         }
+
 }
 
 class Multiplier{
@@ -81,15 +86,16 @@ class Multiplier{
         }
 
         onMultiplierClicked = () =>{
-                if(this.bought === false){
+                if(this.bought === false && window.localStorage.getItem("multiplier") !== "true"){
                         this.bought = true;
+                        window.localStorage.setItem("multiplier", this.bought);
                         this.cookie.score.subtractScore();
                         this.cookie.factor = this.factor;
                 }
         }
 }
 
-class AutosScore{
+class AutoScore{
         htmlElement = undefined;
         score = undefined;
         bought = false;
@@ -101,8 +107,9 @@ class AutosScore{
         }
 
         onAutoScoreClicked = () => {
-                if(this.bought === false){
+                if(this.bought === false && window.localStorage.getItem("autoSave") !== "true"){
                         this.bought = true;
+                        window.localStorage.setItem("autoSave", this.bought);
                         this.score.subtractScore();
                         this.score.onAutoScoreClicked();
                 }
@@ -127,20 +134,6 @@ class ChocolateCookie{
                         this.cookie.score.addPoints();
                 }
                 this.cookie.onStyleChangeChocolate();
-        }
-}
-
-class Save{
-        htmlElement;
-
-        constructor(newHTMLElement){
-                this.htmlElement = newHTMLElement;
-                this.htmlElement.onclick = this.onSaveButtonClicked;
-
-        }
-
-        onSaveButtonClicked = () => {
-                window.localStorage.setItem("score", score.score);
         }
 }
 
@@ -172,22 +165,51 @@ class RedvelvetCookie{
         }
 }
 
+class Save{
+        htmlElement;
+
+        constructor(newHTMLElement){
+                this.htmlElement = newHTMLElement;
+                this.htmlElement.onclick = this.onSaveButtonClicked;
+
+        }
+
+        onSaveButtonClicked = () => {
+                window.localStorage.setItem("score", score.score);
+        }
+}
+
 class Load{
         score;
+        cookie;
 
-        constructor(score) {
+        constructor(score, cookie) {
+                this.cookie = cookie;
                 this.score = score;
                 this.onLoad();
         }
 
-        onLoad = function () {
-                // Save the score in the localStorage
+        onLoad = function() {
+                // Load the score in the localStorage
                 const scoreFromLocalStorage = window.localStorage.getItem("score");
                 if(scoreFromLocalStorage !== null){
                 this.score.scoreLoaded(parseInt(scoreFromLocalStorage));
                 }
+                // Load the multiplier in localStorage
+                const multiplierFromLocalStorage = window.localStorage.getItem("multiplier");
+                if(multiplierFromLocalStorage !== null && multiplierFromLocalStorage === "true"){
+                this.cookie.multiplierLoaded();
+                }
+                // Load the autoScore in localStorage
+                const autoSaveFromLocalStorage = window.localStorage.getItem("autoSave");
+                if(autoSaveFromLocalStorage !== null && autoSaveFromLocalStorage === "true"){
+                this.score.onAutoScoreClicked();
+                }
         }
 }
+
+
+
 
 // Setup for score and cookie
 const score = new Score(555, "Default score", document.getElementById("js--score"));
@@ -195,16 +217,17 @@ const cookie = new Cookie("Default cookie", document.getElementById("js--cookie"
 
 // Setup desktop upgrades
 const multiplier = new Multiplier(document.getElementById("js--multiplier"), cookie);
-const auto = new AutosScore(document.getElementById("js--autoScore"), score);
+const auto = new AutoScore(document.getElementById("js--autoScore"), score);
 const chocolate = new ChocolateCookie(document.getElementById("js--chocolate"), cookie);
 const redVelvet = new RedvelvetCookie(document.getElementById("js--redVelvet"), cookie);
+
 const save = new Save(document.getElementById("js--save"));
-const load = new Load(score);
+const load = new Load(score, cookie);
 
 
 // Setup mobile upgrades
 const multiplierMobile = new Multiplier(document.getElementById("js--multiplier--mobile"), cookie);
-const autoMobile = new AutosScore(document.getElementById("js--autoScore--mobile"), score);
+const autoMobile = new AutoScore(document.getElementById("js--autoScore--mobile"), score);
 const chocolateMobile = new ChocolateCookie(document.getElementById("js--chocolate--mobile"), cookie);
 const redVelvetMobile = new RedvelvetCookie(document.getElementById("js--redVelvet--mobile"), cookie);
 
