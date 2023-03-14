@@ -1,0 +1,6 @@
+@use "../../abstracts/colors";
+
+// only works for Firefox
+body {       /* "auto" or "thin" */
+scrollbar-color: map-get(colors.$baseColors, "backgroundDark") white;   /* scroll thumb and track */ 
+}

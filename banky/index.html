@@ -6,27 +6,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Open+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script src="./js/main.js" defer></script>
+    <script src="https://kit.fontawesome.com/b1a8b29774.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="header">logo</header>
+    <header class="header">
+        <figure class="header__logo">
+            <i class="fa-solid fa-money-bill-transfer"></i>
+            <h2 class="header__banky">Banky</h2>
+        </figure>
+    </header>
     <main class="banky">
-        <section class="banky__section">
+        <section class="banky__section banky__section--left">
             <header class="banky__header">
-                <figure class="banky__logo"></figure>
-                <h1 class="banky__money">Saldo $90</h1>
-                <figure class="banky__eye"></figure>
+                <div>
+                    <figure class="banky__logo">
+                        <i class="fa-solid fa-house"></i>
+                    </figure>
+                    <h1 class="banky__money">Saldo $90</h1>
+                </div>
+                <figure class="banky__eye">
+                    <i class="fa-solid fa-eye"></i>
+                </figure>
             </header>
             <ul class="banky__transactions">
-                <li class="banky__transaction">Jeroen + $10</li>
-                <li class="banky__transaction">Jeroen + $10</li>
-                <li class="banky__transaction">Jeroen + $10</li>
-                <li class="banky__transaction">Jeroen + $10</li>
-                <li class="banky__transaction">Jeroen + $10</li>
+                <li class="banky__transaction">
+                    <h3 class="banky__name">Jeroen</h3>
+                    <h3 class="banky__amount">+10</h3>
+                </li>
+                <li class="banky__transaction">
+                    <h3 class="banky__name">Jeroen</h3>
+                    <h3 class="banky__amount">+10</h3>
+                </li>
+                <li class="banky__transaction">
+                    <h3 class="banky__name">Jeroen</h3>
+                    <h3 class="banky__amount">+10</h3>
+                </li>
+                <li class="banky__transaction">
+                    <h3 class="banky__name">Jeroen</h3>
+                    <h3 class="banky__amount">+10</h3>
+                </li>
+                <li class="banky__transaction">
+                    <h3 class="banky__name">Jeroen</h3>
+                    <h3 class="banky__amount">+10</h3>
+                </li>
+                <li class="banky__transaction">
+                    <h3 class="banky__name">Jeroen</h3>
+                    <h3 class="banky__amount">+10</h3>
+                </li>
+                <li class="banky__transaction">
+                    <h3 class="banky__name">Jeroen</h3>
+                    <h3 class="banky__amount">+10</h3>
+                </li>
+                <li class="banky__transaction">
+                    <h3 class="banky__name">Jeroen</h3>
+                    <h3 class="banky__amount">+10</h3>
+                </li>
+                <li class="banky__transaction">
+                    <h3 class="banky__name">Jeroen</h3>
+                    <h3 class="banky__amount">+10</h3>
+                </li>
             </ul>
-
+            <button class="banky__transferButton">Overboeken</button>
         </section>
-        <section class="banky__section">rechts</section>
+        <section class="banky__section banky__section--right">
+            <ul class="banky__accounts">
+                <li class="banky__account">
+                    <button class="banky__switchAccount">
+                        <figure class="banky__logo">
+                            <i class="fa-solid fa-house"></i>
+                        </figure>
+                    </button>
+                    <h4 class="banky__nameOfAccount">Bankrekening</h4>
+                </li>
+                <li class="banky__account">
+                    <button class="banky__switchAccount">
+                        <figure class="banky__logo">
+                            <i class="fa-solid fa-mug-hot"></i>
+                        </figure>
+                    </button>
+                    <h4 class="banky__nameOfAccount">ZZP rekening</h4>
+                </li>
+            </ul>
+        </section>
     </main>
 </body>
 </html>

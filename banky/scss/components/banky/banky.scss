@@ -1,21 +1,41 @@
 @use "../../abstracts/vars";
+@use "../../abstracts/colors";
 
 .banky{
     background: white;
-    min-height: calc(100vh - map-get(vars.$vhCalc, "heightOfHeader") - map-get(vars.$vhCalc, "paddingOfBody") * 2);
-    display: flex;
+    min-height: calc(100vh - map-get(vars.$vhCalc, "heightOfHeader") - map-get(vars.$vhCalc, "paddingOfBody"));
+    display: grid;
+    grid-template-columns: 40% 60%;
     padding: 4rem;
-
+    margin: 0 auto;
 
     &__section{
-        width: 50%;
-        background: green;
+        display: flex;
+        
+        
+
+        &--left{
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        &--right{
+
+        }
     }
 
     &__header{
         display: flex;
-        gap: 1rem;
         align-items: center;
+        position: relative;
+        justify-content: space-between;
+
+        & > div{
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
     }
 
 &__money{
@@ -24,24 +44,127 @@
 }
 
     &__logo{
+        border-radius: 50%;
+        font-size: 2rem;
         width: 5rem;
         height: 5rem;
-        border-radius: 50%;
-        background: blue;
+        background: linear-gradient(to bottom right, map-get(colors.$baseColors, "background"), 30%, map-get(colors.$baseColors, "backgroundDark"));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #eee;
+        box-shadow: vars.$box-shadow;
+        transition: .2s all;
     }
 
     &__eye{
-        width: 5rem;
-        height: 5rem;
+        width: 3rem;
+        height: 3rem;
         border-radius: 50%;
-        background: blue;
+        background: linear-gradient(to bottom right, #AA77FF, 30%, #66347F);;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #eee;
+        box-shadow: vars.$box-shadow;
     }
+    
 
     &__transactions{
+        padding: 2rem;
+        padding-top: 0;
         list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        height: 50rem;
+        overflow-y: scroll;
     }
 
     &__transaction{
-        border: .1rem solid red;
+        display: flex;
+        font-size: 120%;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        padding-bottom: .5rem;
+
+        &::after{
+            content: "";
+            width: 100%;
+            height: 3%;
+            background: linear-gradient(to bottom right, map-get(colors.$baseColors, "background"), 30%, map-get(colors.$baseColors, "backgroundDark"));
+            position: absolute;
+            border: .2rem;
+            bottom: 0;
+            left: 0;
+        }
+    }
+
+    &__name{
+        font-weight: 300;
+        font-size: 120%;
+    }
+
+    &__amount{
+        font-weight: 300;
+        font-size: 120%;
+    }
+
+    &__transferButton{
+        background: linear-gradient(to bottom right, map-get(colors.$baseColors, "background"), 30%, map-get(colors.$baseColors, "backgroundDark"));
+        font-size: 100%;
+        border: none;
+        padding: 1rem;
+        margin-top: 2rem;
+        color: #eee;
+        border-radius: .5rem;
+        box-shadow: vars.$box-shadow;
+        transition: .4s all;
+        margin-left: 2rem;
+
+        &:hover{
+            cursor: pointer;
+            background: white;
+            color: map-get(colors.$baseColors, "backgroundDark");
+            box-shadow: inset 0 0 0 .2rem
+            map-get(colors.$baseColors, "backgroundDark");
+        }
+    }
+
+    &__accounts{
+        list-style: none;
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4rem;
+    }
+
+    &__switchAccount{
+        background: none;
+        border: none;
+        &:hover{
+            cursor: pointer;
+            
+        }
+
+        &:hover .banky__logo{
+            background: linear-gradient(to bottom right, map-get(colors.$baseColors, "background"), 10%, map-get(colors.$baseColors, "backgroundDark"));
+            border-radius: 50%;
+        }
+    }
+
+    &__account{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__nameOfAccount{
+        font-weight: 400;
+        font-size: 120%;
     }
 }
