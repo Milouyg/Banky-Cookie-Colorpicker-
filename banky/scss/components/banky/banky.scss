@@ -1,0 +1,47 @@
+@use "../../abstracts/vars";
+
+.banky{
+    background: white;
+    min-height: calc(100vh - map-get(vars.$vhCalc, "heightOfHeader") - map-get(vars.$vhCalc, "paddingOfBody") * 2);
+    display: flex;
+    padding: 4rem;
+
+
+    &__section{
+        width: 50%;
+        background: green;
+    }
+
+    &__header{
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+&__money{
+    font-weight: 400;
+    font-size: 250%;
+}
+
+    &__logo{
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        background: blue;
+    }
+
+    &__eye{
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        background: blue;
+    }
+
+    &__transactions{
+        list-style: none;
+    }
+
+    &__transaction{
+        border: .1rem solid red;
+    }
+}

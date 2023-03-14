@@ -1,0 +1,25 @@
+Userstory 1
+Als gebruiker wil ik een simpele bankapp,
+zodat ik snel en makkelijk mijn geld kan overmaken
+
+omschrijving:
+Veel bankapps zijn ingewikkeld.. 
+Maar mensen willen over het algemeen maar 1 ding,
+dat is geld overmaken en klaar.
+
+Acceptatiecriteria
+- Duidelijk kleur gebruiker
+- Geen spellingsfouten
+- Kort maar krachtige tekst
+- Niet een al te drukke pagina
+
+Stappen:
+- casus bestuderen
+- design bestuderen
+- opzetten van html, css/scss, js
+
+
+Userstory 2
+
+
+Userstory 3

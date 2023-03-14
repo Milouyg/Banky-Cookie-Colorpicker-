@@ -1,0 +1,67 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 2rem;
+}
+
+body {
+  padding: 4rem;
+  font-family: "Open Sans", sans-serif;
+  background: linear-gradient(to bottom right, #AA77FF, 30%, #66347F);
+  min-height: 100vh;
+}
+
+.header {
+  background: white;
+  height: 8rem;
+}
+
+.banky {
+  background: white;
+  min-height: calc(100vh - 8rem - 8rem);
+  display: flex;
+  padding: 4rem;
+}
+.banky__section {
+  width: 50%;
+  background: green;
+}
+.banky__header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.banky__money {
+  font-weight: 400;
+  font-size: 250%;
+}
+.banky__logo {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: blue;
+}
+.banky__eye {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: blue;
+}
+.banky__transactions {
+  list-style: none;
+}
+.banky__transaction {
+  border: 0.1rem solid red;
+}
+
+/*# sourceMappingURL=style.css.map */
