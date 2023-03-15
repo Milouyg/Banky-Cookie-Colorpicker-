@@ -20,6 +20,44 @@ Stappen:
 
 
 Userstory 2
+Als gebruiker wil ik kunnen zien wat mijn saldo is,
+zodat ik weet hoeveel geld ik nog kan opnemen van mijn bankrekening.
 
+omschrijving:
+Het is wel handig dat je weet hoeveel geld er op je bankrekening staat,
+voor het geval je pas bij de betaling erachter komt dat je niet genoeg salaris op je bankrekening hebt.
+
+Acceptatiecriteria
+- Het saldo heeft een groot lettertype
+- Het saldo staat op een plaats waar het meteen zichtbaar is
+- Logo stylen
+- Logo is een button
+
+Stappen
+- Fontsize
+- Fontweight 
+- logo stylen
+- logo als button maken
 
 Userstory 3
+Als gebruiker wil ik mijn saldo kunnen blurren,
+zodat andere mensen niet kunnen zien wat ik op mijn saldo header__banky
+
+omschrijving:
+Sommige dingen wil je liever privé houden en daarom zou het fijn zijn,
+dat er een optie zou zijn dat je je gegevens kunt blurren en alleen jij 
+bepaalde dingen kan zien
+
+Acceptatiecriteria
+- Wanneer ik op de knop klik, blurt mijn gegevens
+    - Het logo van het oogje, verandert in een dichtoogje
+- Wanneer ik op de knop klik, zijn mijn gegevens weer scherp
+    - Het logo van het oogje, verandert terug in een open oogje
+
+Stappen
+- Cirkel maken
+- Icoontjes zoeken op fontawesome
+- Icoontje in het center plaatsen
+- Wanneer je klikt op het icoontje, blurren de gegevens of worden de gegevens weer scherp
+- Er komt een ander icoontje wanneer het geblurred wordt of tevoorschijn komt
+
