@@ -1,7 +1,8 @@
 @use "../../abstracts/vars";
+@use "../../abstracts/colors";
 
 .header{
-    background: white;
+    background: map-get(colors.$baseColors, "whiteColor");
     height: map-get(vars.$vhCalc, "heightOfHeader");
     max-width: 150rem;
     font-family: 'Amatic SC', cursive;

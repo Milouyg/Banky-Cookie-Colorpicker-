@@ -1,27 +1,23 @@
 @use "../../abstracts/vars";
 @use "../../abstracts/colors";
+@use "../../abstracts/mixins";
 
 .banky{
-    background: white;
+    background: map-get(colors.$baseColors, "whiteColor");
     min-height: calc(100vh - map-get(vars.$vhCalc, "heightOfHeader") - map-get(vars.$vhCalc, "paddingOfBody"));
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: vars.$sectionWith;
     padding: 4rem;
     margin: 0 auto;
 
     &__section{
         display: flex;
         
-        
-
         &--left{
             flex-direction: column;
             justify-content: space-between;
         }
 
-        &--right{
-
-        }
     }
 
     &__header{
@@ -48,11 +44,11 @@
         font-size: 2rem;
         width: 5rem;
         height: 5rem;
-        background: linear-gradient(to bottom right, map-get(colors.$baseColors, "background"), 30%, map-get(colors.$baseColors, "backgroundDark"));
+        background: vars.$gradient;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #eee;
+        color: map-get(colors.$baseColors, "whiteColor");
         box-shadow: vars.$box-shadow;
         transition: .2s all;
     }
@@ -61,11 +57,11 @@
         width: 3rem;
         height: 3rem;
         border-radius: 50%;
-        background: linear-gradient(to bottom right, #AA77FF, 30%, #66347F);;
+        background: vars.$gradient;;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #eee;
+        color: map-get(colors.$baseColors, "whiteColor");
         box-shadow: vars.$box-shadow;
     }
     
@@ -90,34 +86,22 @@
         padding-bottom: .5rem;
 
         &::after{
-            content: "";
-            width: 100%;
-            height: 3%;
-            background: linear-gradient(to bottom right, map-get(colors.$baseColors, "background"), 30%, map-get(colors.$baseColors, "backgroundDark"));
-            position: absolute;
-            border: .2rem;
-            bottom: 0;
-            left: 0;
+            @include mixins.afterStyle;
         }
     }
 
-    &__name{
-        font-weight: 300;
-        font-size: 120%;
-    }
-
-    &__amount{
+    &__name, &__amount{
         font-weight: 300;
         font-size: 120%;
     }
 
     &__transferButton{
-        background: linear-gradient(to bottom right, map-get(colors.$baseColors, "background"), 30%, map-get(colors.$baseColors, "backgroundDark"));
+        background: vars.$gradient;
         font-size: 100%;
         border: none;
         padding: 1rem;
         margin-top: 2rem;
-        color: #eee;
+        color: map-get(colors.$baseColors, "whiteColor");
         border-radius: .5rem;
         box-shadow: vars.$box-shadow;
         transition: .4s all;
@@ -125,7 +109,7 @@
 
         &:hover{
             cursor: pointer;
-            background: white;
+            background: map-get(colors.$baseColors, "whiteColor");
             color: map-get(colors.$baseColors, "backgroundDark");
             box-shadow: inset 0 0 0 .2rem
             map-get(colors.$baseColors, "backgroundDark");
@@ -152,7 +136,7 @@
         }
 
         &:hover .banky__logo{
-            background: linear-gradient(to bottom right, map-get(colors.$baseColors, "background"), 10%, map-get(colors.$baseColors, "backgroundDark"));
+            background: vars.$gradient;
         }
     }
 

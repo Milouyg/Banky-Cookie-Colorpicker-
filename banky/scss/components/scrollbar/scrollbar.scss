@@ -2,5 +2,5 @@
 
 // only works for Firefox
 body {       /* "auto" or "thin" */
-scrollbar-color: map-get(colors.$baseColors, "backgroundDark") white;   /* scroll thumb and track */ 
+scrollbar-color: map-get(colors.$baseColors, "backgroundDark") map-get(colors.$baseColors, "whiteColors");   /* scroll thumb and track */ 
 }
