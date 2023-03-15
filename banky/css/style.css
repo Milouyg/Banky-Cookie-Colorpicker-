@@ -159,16 +159,15 @@ body {
   justify-content: center;
   gap: 4rem;
 }
-.banky__switchAccount {
+.banky__switchAccount, .banky__eyeButton {
   background: none;
   border: none;
 }
-.banky__switchAccount:hover {
+.banky__switchAccount:hover, .banky__eyeButton:hover {
   cursor: pointer;
 }
-.banky__switchAccount:hover .banky__logo {
+.banky__switchAccount:hover .banky__logo, .banky__eyeButton:hover .banky__logo {
   background: linear-gradient(to bottom right, #AA77FF, 10%, #66347F);
-  border-radius: 50%;
 }
 .banky__account {
   display: flex;
