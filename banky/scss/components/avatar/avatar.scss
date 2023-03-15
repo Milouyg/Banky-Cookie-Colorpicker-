@@ -1,8 +1,14 @@
 @use "../../abstracts/colors";
 
 .avatar{
-    width: 10rem;
-    height: 10rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header__avatar{
+    width: 9rem;
+    height: 9rem;
     background: map-get(colors.$avatar, "background");
     border-radius: 50%;
     position: relative;
@@ -10,7 +16,7 @@
     border: .6rem solid map-get(colors.$avatar, "spots");
     cursor: pointer;
     
-    &__head{
+    &Head{
         width: 40%;
         height: 40%;
         background: map-get(colors.$avatar, "spots");
@@ -22,7 +28,7 @@
         transition: .8s all;
     }
 
-    &__body{
+    &Body{
         width: 70%;
         height: 50%;
         background: map-get(colors.$avatar, "spots");
@@ -33,7 +39,7 @@
         transform: translate(-50%, -50%);
     }
 
-    &:hover &__head{
+    &:hover &Head{
         transform: translate(-50%, -50%) scale(1.1);
     }
 }

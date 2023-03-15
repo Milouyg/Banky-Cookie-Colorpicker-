@@ -31,6 +31,8 @@ body {
   border-top-left-radius: 5rem;
   border-top-right-radius: 5rem;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 .header__logo {
   display: flex;
@@ -39,22 +41,33 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  grid-column: 2/3;
+}
+
+.header__avatar {
+  grid-column: 3/3;
 }
 
 .avatar {
-  width: 10rem;
-  height: 10rem;
-  background: #C19277;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header__avatar {
+  width: 9rem;
+  height: 9rem;
+  background: #AA77FF;
   border-radius: 50%;
   position: relative;
   overflow: hidden;
-  border: 0.6rem solid #483434;
+  border: 0.6rem solid #66347F;
   cursor: pointer;
 }
-.avatar__head {
+.header__avatarHead {
   width: 40%;
   height: 40%;
-  background: #483434;
+  background: #66347F;
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -62,17 +75,17 @@ body {
   transform: translate(-50%, -50%);
   transition: 0.8s all;
 }
-.avatar__body {
+.header__avatarBody {
   width: 70%;
   height: 50%;
-  background: #483434;
+  background: #66347F;
   border-radius: 50%;
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.avatar:hover .avatar__head {
+.header__avatar:hover .header__avatarHead {
   transform: translate(-50%, -50%) scale(1.1);
 }
 
@@ -189,6 +202,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 4rem;
+  padding-top: 3rem;
 }
 .banky__switchAccount, .banky__eyeButton {
   background: none;
