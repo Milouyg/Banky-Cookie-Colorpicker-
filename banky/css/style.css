@@ -48,13 +48,13 @@ body {
   grid-column: 3/3;
 }
 
-.avatar {
+.avatarWrapper {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
-.header__avatar {
+.avatar {
   width: 9rem;
   height: 9rem;
   background: #AA77FF;
@@ -64,7 +64,7 @@ body {
   border: 0.6rem solid #66347F;
   cursor: pointer;
 }
-.header__avatarHead {
+.avatar__head {
   width: 40%;
   height: 40%;
   background: #66347F;
@@ -75,7 +75,7 @@ body {
   transform: translate(-50%, -50%);
   transition: 0.8s all;
 }
-.header__avatarBody {
+.avatar__body {
   width: 70%;
   height: 50%;
   background: #66347F;
@@ -85,7 +85,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.header__avatar:hover .header__avatarHead {
+.avatar:hover .avatarHead {
   transform: translate(-50%, -50%) scale(1.1);
 }
 

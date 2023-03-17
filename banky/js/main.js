@@ -55,13 +55,13 @@ class Header{
         this.avatarWrapperElement.classList ="avatarWrapper";
 
         this.avatarElement = document.createElement("figure");
-        this.avatarElement.classList = "header__avatar";
+        this.avatarElement.classList = "avatar";
 
         this.avatarHeadElement = document.createElement("div");
-        this.avatarHeadElement.classList = "header__avatarHead";
+        this.avatarHeadElement.classList = "avatar__head";
 
         this.avatarBodyElement = document.createElement("div");
-        this.avatarBodyElement.classList = "header__avatarBody";
+        this.avatarBodyElement.classList = "avatar__body";
     }
 
     render(){
