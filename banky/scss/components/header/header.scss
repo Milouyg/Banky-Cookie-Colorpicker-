@@ -1,9 +1,9 @@
 @use "../../abstracts/vars";
 @use "../../abstracts/colors";
 
-.header{
+.header {
     background: map-get(colors.$baseColors, "whiteColor");
-    height: map-get(vars.$vhCalc, "heightOfHeader");
+    min-height: map-get(vars.$vhCalc, "heightOfHeader");
     max-width: 150rem;
     font-family: 'Amatic SC', cursive;
     padding: 2rem;
@@ -11,9 +11,9 @@
     border-top-right-radius: 5rem;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, minmax(10rem, 1fr));
 
-    &__logo{
+    &__logo {
         display: flex;
         font-size: 300%;
         font-weight: 400;
@@ -24,8 +24,6 @@
     }
 }
 
-.header__avatar{
+.header__avatar {
     grid-column: 3/3;
 }
-
-

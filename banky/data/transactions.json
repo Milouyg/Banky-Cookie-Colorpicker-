@@ -1,5 +1,5 @@
 {
-    "bankrekening": [
+    "Bankrekening": [
         {
             "from/to": "Jeroen",
             "amount": 10
@@ -9,12 +9,32 @@
             "amount": 100
         },
         {
-            "from/to": "Mert",
+            "from/to": "Mitchel",
             "amount": -100
+        },
+        {
+            "from/to": "Alex",
+            "amount": -20
         },
         {
             "from/to": "Ahmet",
             "amount": -20
+        },
+        {
+            "from/to": "Ahmet",
+            "amount": -20
+        },
+        {
+            "from/to": "Ahmet",
+            "amount": -20
+        },
+        {
+            "from/to": "Ahmet",
+            "amount": 200
+        },
+        {
+            "from/to": "Ahmet",
+            "amount": 500
         }
     ],
     "ZZP-Rekening": [
